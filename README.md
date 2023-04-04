@@ -3,10 +3,10 @@
 ## Project: Stellar Burgers
 
 - Java 11
-- Maven 3.8.1
+- Maven 4
 - JUnit 4.13.2
 - Mockito 5.2.0
-- Jacoco 0.8.7
+- Jacoco 0.8.6
 
 
 ### Created Unit tests:
@@ -15,3 +15,4 @@
 - for class Ingredient and IngredientType
 
 ### Added Jacoco report
+Database.class and Praktikum.class excluded from the report
