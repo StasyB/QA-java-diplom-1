@@ -11,11 +11,15 @@ import static ru.yandex.praktikum.IngredientType.FILLING;
 import static ru.yandex.praktikum.IngredientType.SAUCE;
 
 public class BurgerTests {
-    private Burger burger;
     private static final String BUN_NAME = "new bun";
     private static final float BUN_PRICE = 199.99F;
     private static final String INGREDIENT_NAME = "new ingredient";
     private static final float INGREDIENT_PRICE = 0.99F;
+    @Mock
+    Bun bun = getBunMok(BUN_NAME, BUN_PRICE);
+    Ingredient ingredientSauce = getIngredientMok(SAUCE, INGREDIENT_NAME, INGREDIENT_PRICE);
+    Ingredient ingredientFilling = getIngredientMok(FILLING, INGREDIENT_NAME, INGREDIENT_PRICE);
+    private Burger burger;
 
     public Bun getBunMok(String name, float price) {
         Bun bun = mock(Bun.class);
@@ -31,11 +35,6 @@ public class BurgerTests {
         when(ingredient.getPrice()).thenReturn(price);
         return ingredient;
     }
-
-    @Mock
-    Bun bun = getBunMok(BUN_NAME, BUN_PRICE);
-    Ingredient ingredientSauce = getIngredientMok(SAUCE, INGREDIENT_NAME, INGREDIENT_PRICE);
-    Ingredient ingredientFilling = getIngredientMok(FILLING, INGREDIENT_NAME, INGREDIENT_PRICE);
 
     @Before
     public void setUp() {
@@ -88,13 +87,13 @@ public class BurgerTests {
         burger.getPrice();
         String expected = String.format(
                 "(==== new bun ====)%n" +
-                "= sauce new ingredient =%n" +
-                "= filling new ingredient =%n" +
-                "(==== new bun ====)%n" +
-                "%n" +
-                "Price: 401,959991%n");
+                        "= sauce new ingredient =%n" +
+                        "= filling new ingredient =%n" +
+                        "(==== new bun ====)%n" +
+                        "%n" +
+                        "Price: 401,959991%n");
 
         assertEquals("receipt is incorrect printed", expected, burger.getReceipt());
-        }
     }
+}
 

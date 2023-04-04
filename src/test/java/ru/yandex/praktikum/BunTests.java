@@ -8,9 +8,9 @@ import org.junit.runners.Parameterized;
 
 @RunWith(Parameterized.class)
 public class BunTests {
-    private Bun bun;
     private final String name;
     private final float price;
+    private Bun bun;
 
     public BunTests(String name, float price) {
         this.name = name;
@@ -19,13 +19,14 @@ public class BunTests {
 
     @Parameterized.Parameters(name = "Название и цена булочки: {0}: {1}")
     public static Object[][] testsData() {
-        return new Object[][] {
+        return new Object[][]{
                 {"Краторная булка N-200i", Float.MIN_VALUE},
                 {"Флюоресцентная булка R2-D3", Float.MAX_VALUE},
                 {" ", 1234},
                 {null, -123}
         };
     }
+
     @Before
     public void setUp() {
         bun = new Bun(name, price);
@@ -38,7 +39,7 @@ public class BunTests {
 
     @Test
     public void getPriceWithValidDataOk() {
-        Assert.assertEquals("value in the field Price is incorrect.", price, bun.getPrice(),0);
+        Assert.assertEquals("value in the field Price is incorrect.", price, bun.getPrice(), 0);
     }
 
 }
