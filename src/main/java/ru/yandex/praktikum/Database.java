@@ -1,4 +1,4 @@
-package praktikum;
+package ru.yandex.praktikum;
 
 import java.util.ArrayList;
 import java.util.List;
